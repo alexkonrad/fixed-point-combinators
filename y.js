@@ -1,5 +1,5 @@
 // Y combinator
-var Y = function Y (f) {
+function Y (f) {
   return ((function A (x) {
     return f(function B(v) {
       return x(x)(v)
@@ -11,8 +11,4 @@ var Y = function Y (f) {
   }))
 }
 
-module.exports = Y(function (fac) {
-  return function (n) {
-    return (n == 0 ? 1 : n * fac(n - 1))
-  }
-})
+module.exports = Y
